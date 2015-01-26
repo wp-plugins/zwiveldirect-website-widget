@@ -1,5 +1,4 @@
 === Zwivel Wordpress ===
-Contributors: maidomax
 Tags: zwivel, plastic, surgery, doctor, widget
 Requires at least: 3.0.1
 Tested up to: 4.1
