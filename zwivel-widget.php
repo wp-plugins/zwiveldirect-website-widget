@@ -3,7 +3,7 @@
 Plugin Name: Zwivel Widget
 Plugin URI: http://www.zwivel.com/
 Description: A plugin that adds the Zwivel widget to your website
-Version: 0.1
+Version: 1.0
 Author: Zwivel LLC
 Author URI: http://www.zwivel.com/
 License: GPL2
