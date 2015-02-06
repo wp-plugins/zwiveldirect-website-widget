@@ -9,7 +9,7 @@ Author URI: http://www.zwivel.com/
 License: GPL2
 */
 
-/*  Copyright 2015  VivifyIdeas  (email : zwivel@vivifyideas.com)
+/*  Copyright 2015  Zwivel LLC  (email : info@zwivel.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as 
@@ -65,10 +65,17 @@ class wp_zwivel_widget extends WP_Widget {
         $url = $instance['url'];
 
         if( $url ) {
-            $matches = array();
-            preg_match('/zwivel.com\/(.*)\/direct/', $url, $matches);
-            $widget_url = '<script id="zwivelWidgetSnippet" src="http://zwivel.com/widget/'.$matches[1].'"></script>';
-            echo $widget_url;
+            if (strpos($url, "/group-direct/") !== FALSE) {
+                $matches = array();
+                preg_match('/zwivel.com\/group-direct\/(.*)/', $url, $matches);
+                $widget_code = '<script id="zwivelWidgetSnippet" src="http://doctor.zwivel.com/group-widget/'.$matches[1].'"></script>';
+                echo $widget_code;
+            } else {
+                $matches = array();
+                preg_match('/zwivel.com\/(.*)\/direct/', $url, $matches);
+                $widget_code = '<script id="zwivelWidgetSnippet" src="http://doctor.zwivel.com/widget/'.$matches[1].'"></script>';
+                echo $widget_code;
+            }            
         }
     }
 }
