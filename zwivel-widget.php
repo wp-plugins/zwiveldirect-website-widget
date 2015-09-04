@@ -3,7 +3,7 @@
 Plugin Name: Zwivel Widget
 Plugin URI: http://www.zwivel.com/
 Description: A plugin that adds the Zwivel widget to your website
-Version: 1.0
+Version: 1.1
 Author: Zwivel LLC
 Author URI: http://www.zwivel.com/
 License: GPL2
@@ -69,11 +69,13 @@ class wp_zwivel_widget extends WP_Widget {
                 $matches = array();
                 preg_match('/zwivel.com\/group-direct\/(.*)/', $url, $matches);
                 $widget_code = '<script id="zwivelWidgetSnippet" src="http://doctor.zwivel.com/group-widget/'.$matches[1].'"></script>';
+                $widget_code .= '<noscript><a href="' . $url . '" title="Start your consultation with the doctor(s) of your choice NOW!" target="_blank">Start your consultation with the doctors of your choice NOW!</a> Powered by <a href="http://www.zwivel.com" title="Zwivel - Online Cosmetic Consultations">Zwivel - Online Cosmetic Consultations</a></noscript>';
                 echo $widget_code;
             } else {
                 $matches = array();
                 preg_match('/zwivel.com\/(.*)\/direct/', $url, $matches);
                 $widget_code = '<script id="zwivelWidgetSnippet" src="http://doctor.zwivel.com/widget/'.$matches[1].'"></script>';
+                $widget_code .= '<noscript><a href="' . $url . '" title="Start your consultation with this doctor NOW!" target="_blank">Start your consultation with the doctor NOW!</a> Powered by <a href="http://www.zwivel.com" title="Zwivel - Online Cosmetic Consultations">Zwivel - Online Cosmetic Consultations</a></noscript>';
                 echo $widget_code;
             }            
         }
